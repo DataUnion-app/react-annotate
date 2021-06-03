@@ -1,12 +1,13 @@
-import React, { useEffect } from "react"
-import { styled } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
 import * as muiColors from "@material-ui/core/colors"
-import SidebarBoxContainer from "../SidebarBoxContainer"
-import colors from "../colors"
+import { styled } from "@material-ui/core/styles"
 import BallotIcon from "@material-ui/icons/Ballot"
-import capitalize from "lodash/capitalize"
 import classnames from "classnames"
+import capitalize from "lodash/capitalize"
+import React, { useEffect } from "react"
+
+import colors from "../colors"
+import SidebarBoxContainer from "../SidebarBoxContainer"
 
 const LabelContainer = styled("div")({
   display: "flex",
@@ -26,21 +27,25 @@ const LabelContainer = styled("div")({
     fontWeight: "bold",
   },
 })
+
 const Circle = styled("div")({
   width: 12,
   height: 12,
   borderRadius: 12,
   marginRight: 8,
 })
+
 const Label = styled("div")({
   fontSize: 11,
 })
+
 const DashSep = styled("div")({
   flexGrow: 1,
   borderBottom: `2px dotted ${muiColors.grey[300]}`,
   marginLeft: 8,
   marginRight: 8,
 })
+
 const Number = styled("div")({
   fontSize: 11,
   textAlign: "center",

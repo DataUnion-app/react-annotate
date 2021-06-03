@@ -1,6 +1,7 @@
 // @flow
 
-import React, { useRef, useCallback } from "react"
+import React, { useCallback, useRef } from "react"
+
 import type { Node } from "react"
 import { makeStyles, styled } from "@material-ui/core/styles"
 import ImageCanvas from "../ImageCanvas"
@@ -112,7 +113,7 @@ export const MainLayout = ({
 
   const refocusOnMouseEvent = useCallback((e) => {
     if (!innerContainerRef.current) return
-    if (innerContainerRef.current.contains(document.activeElement)) return
+    if (typeof document !== 'undefined' && innerContainerRef.current.contains(document.activeElement)) return
     if (innerContainerRef.current.contains(e.target)) {
       innerContainerRef.current.focus()
       e.target.focus()

@@ -2,9 +2,11 @@
 
 import React from "react"
 import ReactDOM from "react-dom"
-import Theme from "./Theme"
+
 import DemoSite from "./DemoSite"
 import LandingPage from "./LandingPage"
+import Theme from "./Theme"
+
 import "./site.css"
 
 const Site = () => {
@@ -15,4 +17,6 @@ const Site = () => {
   return <Theme>{path === "demo" ? <DemoSite /> : <LandingPage />}</Theme>
 }
 
-ReactDOM.render(<Site />, document.getElementById("root"))
+if (typeof document !== undefined) {
+  ReactDOM.render(<Site />, document.getElementById("root"))
+}

@@ -1,5 +1,5 @@
 {
-  "name": "react-image-annotate",
+  "name": "@dataunion.app/react-annotate",
   "version": "1.8.0",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
@@ -38,10 +38,10 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "homepage": "/react-image-annotate",
+  "homepage": "http:///dataunion-react-image-annotate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UniversalDataTool/react-image-annotate.git"
+    "url": "git+https://github.com/UniversalDataTool/react-image-annotate.git"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -84,5 +84,15 @@
   },
   "prettier": {
     "semi": false
-  }
+  },
+  "description": "[![npm version](https://badge.fury.io/js/react-image-annotate.svg)](https://badge.fury.io/js/react-image-annotate)",
+  "bugs": {
+    "url": "https://github.com/UniversalDataTool/react-image-annotate/issues"
+  },
+  "main": ".releaserc.js",
+  "keywords": [
+    "annotation"
+  ],
+  "author": "dataunion.app",
+  "license": "MIT"
 }

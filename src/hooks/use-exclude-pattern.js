@@ -1,11 +1,12 @@
 // @flow weak
 
 import { useRef } from "react"
+
 import excludePatternSrc from "./xpattern.js"
 
 export default () => {
   const excludePattern = useRef(null)
-  if (excludePattern.current === null) {
+  if (excludePattern.current === null && typeof document !== undefined) {
     excludePattern.current = {
       image: new Image(),
       pattern: null,

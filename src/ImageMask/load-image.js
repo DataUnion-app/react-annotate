@@ -1,16 +1,18 @@
 export const loadImage = (imageSrc) => {
-  // Check if image is already loaded in a page element
-  let image = Array.from(document.getElementsByTagName("img")).find(
-    (img) => img.src === imageSrc
-  )
+  if (typeof document !== 'undefined') {
+    // Check if image is already loaded in a page element
+    let image = Array.from(document.getElementsByTagName("img")).find(
+      (img) => img.src === imageSrc
+    )
 
-  const canvas = document.createElement("canvas")
-  const ctx = canvas.getContext("2d")
+    const canvas = document.createElement("canvas")
+    const ctx = canvas.getContext("2d")
 
-  if (!image) {
-    image = new Image()
-    image.crossOrigin = "anonymous"
-    image.src = imageSrc
+    if (!image) {
+      image = new Image()
+      image.crossOrigin = "anonymous"
+      image.src = imageSrc
+    }
   }
 
   return new Promise((resolve, reject) => {

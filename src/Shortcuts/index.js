@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react"
-import SidebarBoxContainer from "../SidebarBoxContainer"
+import React, { useEffect, useState } from "react"
 import { setIn } from "seamless-immutable"
+
+import SidebarBoxContainer from "../SidebarBoxContainer"
 import ShortcutField from "./ShortcutField"
 
 const defaultShortcuts = {
@@ -104,7 +105,9 @@ export default ({ onShortcutActionDispatched }) => {
 
     return () => {
       window.removeEventListener("keypress", handleKeyPress)
-      document.activeElement.blur()
+      if (typeof document !== 'undefined') {
+        document.activeElement.blur() 
+      }
     }
   }, [shortcuts])
 
