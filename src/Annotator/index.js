@@ -1,6 +1,7 @@
 // @flow
 
-import React, { useReducer, useEffect } from "react"
+import React, { useEffect, useReducer } from "react"
+
 import type { Node } from "react"
 import MainLayout from "../MainLayout"
 import type {
@@ -52,6 +53,9 @@ type Props = {
   hideHeaderText?: boolean,
   hideNext?: boolean,
   hidePrev?: boolean,
+  
+  // MY ADDITIONS
+  postAnnotation: (metadata: any) => void
 }
 
 export const Annotator = ({
@@ -92,6 +96,7 @@ export const Annotator = ({
   hideNext,
   hidePrev,
   allowComments,
+  postAnnotation,
 }: Props) => {
   if (typeof selectedImage === "string") {
     selectedImage = (images || []).findIndex((img) => img.src === selectedImage)
