@@ -35,7 +35,7 @@ type Props = {
   selectedTool?: String,
   showTags?: boolean,
   selectedImage?: string | number,
-  images?: Array<Image>,
+  images?: Array<any>,
   showPointDistances?: boolean,
   pointDistancePrecision?: number,
   RegionEditLabel?: Node,
