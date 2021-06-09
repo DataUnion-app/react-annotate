@@ -53,6 +53,7 @@ type Props = {
   hideHeaderText?: boolean,
   hideNext?: boolean,
   hidePrev?: boolean,
+  hideClone?: boolean,
   
   // MY ADDITIONS
   postAnnotation: (metadata: any) => void
@@ -95,6 +96,7 @@ export const Annotator = ({
   hideHeaderText,
   hideNext,
   hidePrev,
+  hideClone,
   allowComments,
   postAnnotation,
 }: Props) => {
@@ -192,6 +194,7 @@ export const Annotator = ({
         hideHeaderText={hideHeaderText}
         hideNext={hideNext}
         hidePrev={hidePrev}
+        hideClone={hideClone}
       />
     </SettingsProvider>
   )

@@ -1,9 +1,10 @@
+import Paper from "@material-ui/core/Paper"
+import LockIcon from "@material-ui/icons/Lock"
 // @flow weak
 
 import React from "react"
-import Paper from "@material-ui/core/Paper"
+
 import DefaultRegionLabel from "../RegionLabel"
-import LockIcon from "@material-ui/icons/Lock"
 
 const copyWithout = (obj, ...args) => {
   const newObj = { ...obj }
@@ -29,8 +30,8 @@ export const RegionTags = ({
   onRegionClassAdded,
   allowComments,
 }) => {
-  const RegionLabel =
-    RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel
+  const RegionLabel = RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel
+  
   return regions
     .filter((r) => r.visible || r.visible === undefined)
     .map((region) => {

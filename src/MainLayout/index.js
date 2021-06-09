@@ -71,6 +71,7 @@ export const MainLayout = ({
   hideHeaderText,
   hideNext = false,
   hidePrev = false,
+  hideClone = false,
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -257,7 +258,7 @@ export const MainLayout = ({
                 : !state.videoPlaying
                 ? { name: "Play" }
                 : { name: "Pause" },
-              !nextImageHasRegions && activeImage.regions && { name: "Clone" },
+              !nextImageHasRegions && !hideClone && activeImage.regions && { name: "Clone" },
               { name: "Settings" },
               state.fullScreen ? { name: "Window" } : { name: "Fullscreen" },
               { name: "Save" },
@@ -288,32 +289,32 @@ export const MainLayout = ({
                   "Zoom In/Out (scroll)" + getHotkeyHelpText("zoom_tool"),
                 alwaysShowing: true,
               },
-              {
-                name: "show-tags",
-                helperText: "Show / Hide Tags",
-                alwaysShowing: true,
-              },
-              {
-                name: "create-point",
-                helperText: "Add Point" + getHotkeyHelpText("create_point"),
-              },
+              // {
+              //   name: "show-tags",
+              //   helperText: "Show / Hide Tags",
+              //   alwaysShowing: true,
+              // },
+              // {
+              //   name: "create-point",
+              //   helperText: "Add Point" + getHotkeyHelpText("create_point"),
+              // },
               {
                 name: "create-box",
                 helperText:
                   "Add Bounding Box" + getHotkeyHelpText("create_bounding_box"),
               },
-              {
-                name: "create-polygon",
-                helperText: "Add Polygon" + getHotkeyHelpText("create_polygon"),
-              },
-              {
-                name: "create-line",
-                helperText: "Add Line",
-              },
-              {
-                name: "create-expanding-line",
-                helperText: "Add Expanding Line",
-              },
+              // {
+              //   name: "create-polygon",
+              //   helperText: "Add Polygon" + getHotkeyHelpText("create_polygon"),
+              // },
+              // {
+              //   name: "create-line",
+              //   helperText: "Add Line",
+              // },
+              // {
+              //   name: "create-expanding-line",
+              //   helperText: "Add Expanding Line",
+              // },
               {
                 name: "create-keypoints",
                 helperText: "Add Keypoints (Pose)",

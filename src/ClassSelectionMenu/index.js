@@ -61,6 +61,7 @@ export const ClassSelectionMenu = ({
   regionClsList,
   onSelectCls,
 }) => {
+
   useEffect(() => {
     const keyMapping = {}
     for (let i = 0; i < 9 && i < regionClsList.length; i++) {
@@ -79,7 +80,7 @@ export const ClassSelectionMenu = ({
 
   return (
     <SidebarBoxContainer
-      title="Classifications"
+      title="Tags"
       subTitle=""
       icon={<BallotIcon style={{ color: muiColors.grey[700] }} />}
       expandedByDefault
@@ -88,6 +89,7 @@ export const ClassSelectionMenu = ({
         <LabelContainer
           className={classnames({ selected: label === selectedCls })}
           onClick={() => onSelectCls(label)}
+          key={index}
         >
           <Circle style={{ backgroundColor: colors[index % colors.length] }} />
           <Label className={classnames({ selected: label === selectedCls })}>
