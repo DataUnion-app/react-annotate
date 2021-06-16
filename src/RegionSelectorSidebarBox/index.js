@@ -1,21 +1,22 @@
-// @flow
-
-import React, { Fragment, useState, memo } from "react"
-import SidebarBoxContainer from "../SidebarBoxContainer"
-import { makeStyles, styled } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
-import RegionIcon from "@material-ui/icons/PictureInPicture"
 import Grid from "@material-ui/core/Grid"
-import ReorderIcon from "@material-ui/icons/SwapVert"
-import PieChartIcon from "@material-ui/icons/PieChart"
+import { makeStyles, styled } from "@material-ui/core/styles"
 import TrashIcon from "@material-ui/icons/Delete"
 import LockIcon from "@material-ui/icons/Lock"
 import UnlockIcon from "@material-ui/icons/LockOpen"
+import RegionIcon from "@material-ui/icons/PictureInPicture"
+import PieChartIcon from "@material-ui/icons/PieChart"
+import ReorderIcon from "@material-ui/icons/SwapVert"
 import VisibleIcon from "@material-ui/icons/Visibility"
 import VisibleOffIcon from "@material-ui/icons/VisibilityOff"
-import styles from "./styles"
 import classnames from "classnames"
 import isEqual from "lodash/isEqual"
+// @flow
+
+import React, { Fragment, memo, useState } from "react"
+
+import SidebarBoxContainer from "../SidebarBoxContainer"
+import styles from "./styles"
 
 const useStyles = makeStyles(styles)
 
@@ -171,7 +172,7 @@ export const RegionSelectorSidebarBox = ({
   const classes = useStyles()
   return (
     <SidebarBoxContainer
-      title="Regions"
+      title="Boxes"
       subTitle=""
       icon={<RegionIcon style={{ color: grey[700] }} />}
       expandedByDefault
