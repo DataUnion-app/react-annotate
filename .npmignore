@@ -1,6 +1,0 @@
-# .npmignore
-node_modules
-public
-.github
-.storybook
-src

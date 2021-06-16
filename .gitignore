@@ -25,6 +25,8 @@ storybook-static
 
 package-lock.json
 
+dist
+
 secret.*
 secret.story.*
 *.secret.*
