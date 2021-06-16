@@ -1,12 +1,11 @@
+import { action } from "@storybook/addon-actions"
+import { storiesOf } from "@storybook/react"
 import React from "react"
 
-import { storiesOf } from "@storybook/react"
-import { action } from "@storybook/addon-actions"
-
 import ImageCanvas from "./"
+import dancingManImage from "./dancing-man.story.jpg"
 import exampleMask from "./mouse_mask.story.png"
 import exampleImage from "./seves_desk.story.jpg"
-import dancingManImage from "./dancing-man.story.jpg"
 
 export const testRegions = [
   {
@@ -23,7 +22,7 @@ export const testRegions = [
     type: "point",
     id: "point2",
     cls: "Dude's Head",
-    tags: ["human", "head", "male"],
+    // tags: ["human", "head", "male"],
     x: 0.1,
     y: 0.15,
     visible: true,
@@ -45,7 +44,7 @@ export const testRegions = [
     type: "polygon",
     id: "polygon1",
     cls: "Laptop",
-    tags: ["Electronic Device"],
+    // tags: ["Electronic Device"],
     editingLabels: true,
     highlighted: true,
     points: [
@@ -76,7 +75,7 @@ export const testRegions = [
     type: "pixel",
     id: "pixel1",
     cls: "Mouse",
-    tags: ["Electronic Device"],
+    // tags: ["Electronic Device"],
     sx: 0.7433,
     sy: 0.5847,
     w: 0.83 - 0.7433,
