@@ -29,6 +29,10 @@ export const RegionTags = ({
   RegionEditLabel,
   onRegionClassAdded,
   allowComments,
+  
+  // MY ADDITION
+  hideRegionTagOption,
+  hideRegionClsOption
 }) => {
   const RegionLabel = RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel
   
@@ -121,6 +125,8 @@ export const RegionTags = ({
               imageSrc={imageSrc}
               onRegionClassAdded={onRegionClassAdded}
               allowComments={allowComments}
+              hideRegionTagOption={hideRegionTagOption}
+              hideRegionClsOption={hideRegionClsOption}
             />
           </div>
         </div>

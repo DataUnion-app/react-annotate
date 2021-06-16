@@ -58,6 +58,10 @@ type Props = {
   onRegionClassAdded: () => {},
   hideHeader?: boolean,
   hideHeaderText?: boolean,
+
+  // MY ADDITIONS
+  hideRegionTagOption?: boolean,
+  hideRegionClsOption?: boolean
 }
 
 export const MainLayout = ({
@@ -72,6 +76,10 @@ export const MainLayout = ({
   hideNext = false,
   hidePrev = false,
   hideClone = false,
+
+  // MY ADDITIONS
+  hideRegionTagOption,
+  hideRegionClsOption,
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -190,6 +198,10 @@ export const MainLayout = ({
       onChangeVideoPlaying={action("CHANGE_VIDEO_PLAYING", "isPlaying")}
       onRegionClassAdded={onRegionClassAdded}
       allowComments={state.allowComments}
+
+      // MY ADDITIONS
+      hideRegionTagOption={hideRegionTagOption}
+      hideRegionClsOption={hideRegionClsOption}
     />
   )
 

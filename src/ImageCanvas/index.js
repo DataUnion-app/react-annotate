@@ -85,6 +85,10 @@ type Props = {
   onChangeVideoTime: (number) => any,
   onRegionClassAdded: () => {},
   onChangeVideoPlaying?: Function,
+
+  // MY ADDITIONS
+  hideRegionTagOption?: boolean,
+  hideRegionClsOption?: boolean
 }
 
 const getDefaultMat = (allowedArea = null, { iw, ih } = {}) => {
@@ -140,6 +144,10 @@ export const ImageCanvas = ({
   modifyingAllowedArea = false,
   keypointDefinitions,
   allowComments,
+
+  // MY ADDITION
+  hideRegionTagOption,
+  hideRegionClsOption
 }: Props) => {
   const classes = useStyles()
 
@@ -180,6 +188,9 @@ export const ImageCanvas = ({
     mousePosition.current.x,
     mousePosition.current.y
   )
+
+  // ts
+  // console.log(hideRegionTagOption)
 
   const projectRegionBox = useProjectRegionBox({ layoutParams, mat })
 
@@ -390,11 +401,15 @@ export const ImageCanvas = ({
             RegionEditLabel={RegionEditLabel}
             onRegionClassAdded={onRegionClassAdded}
             allowComments={allowComments}
+            // MY ADDITION
+            hideRegionTagOption={hideRegionTagOption}
+            hideRegionClsOption={hideRegionClsOption}
           />
         </PreventScrollToParents>
       )}
       {!showTags && highlightedRegion && (
         <div key="topLeftTag" className={classes.fixedRegionLabel}>
+          {/* ts {console.log(hideRegionTagOption)} */}
           <RegionLabel
             disableClose
             allowedClasses={regionClsList}
@@ -405,6 +420,8 @@ export const ImageCanvas = ({
             region={highlightedRegion}
             imageSrc={imageSrc}
             allowComments={allowComments}
+            hideRegionTagOption={hideRegionTagOption}
+            hideRegionClsOption={hideRegionClsOption}
           />
         </div>
       )}

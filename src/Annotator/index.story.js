@@ -53,6 +53,7 @@ storiesOf("Annotator", module)
           name: "Frame 0038",
         },
       ]}
+      hideRegionTagOption={true}
     />
   ))
   .add("Basic - Allow Comments", () => (
@@ -83,6 +84,7 @@ storiesOf("Annotator", module)
           name: "Frame 0038",
         },
       ]}
+      hideRegionTagOption={true}
       allowComments
     />
   ))

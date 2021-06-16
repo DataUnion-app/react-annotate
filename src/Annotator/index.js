@@ -56,7 +56,8 @@ type Props = {
   hideClone?: boolean,
   
   // MY ADDITIONS
-  postAnnotation: (metadata: any) => void
+  hideRegionClsOption?: boolean,
+  hideRegionTagOption?: boolean
 }
 
 export const Annotator = ({
@@ -98,7 +99,10 @@ export const Annotator = ({
   hidePrev,
   hideClone,
   allowComments,
-  postAnnotation,
+
+  // MY ADDITIONS
+  hideRegionTagOption = false,
+  hideRegionClsOption = false,
 }: Props) => {
   if (typeof selectedImage === "string") {
     selectedImage = (images || []).findIndex((img) => img.src === selectedImage)
@@ -149,6 +153,9 @@ export const Annotator = ({
     })
   )
 
+  // ts
+  // console.log(hideRegionTagOption)
+
   const dispatch = useEventCallback((action: Action) => {
     if (action.type === "HEADER_BUTTON_CLICKED") {
       if (["Exit", "Done", "Save", "Complete"].includes(action.buttonName)) {
@@ -195,6 +202,10 @@ export const Annotator = ({
         hideNext={hideNext}
         hidePrev={hidePrev}
         hideClone={hideClone}
+
+        // MY ADDITIONS
+        hideRegionTagOption={hideRegionTagOption}
+        hideRegionClsOption={hideRegionClsOption}
       />
     </SettingsProvider>
   )

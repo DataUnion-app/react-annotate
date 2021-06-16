@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef, memo } from "react"
+import React, { useRef, memo, useEffect } from "react"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
 import styles from "./styles"
@@ -31,6 +31,10 @@ type Props = {
   onOpen: (Region) => null,
   onRegionClassAdded: () => {},
   allowComments?: boolean,
+
+  // MY ADDITIONS
+  hideRegionTagOption?: boolean,
+  hideRegionClsOption?: boolean
 }
 
 export const RegionLabel = ({
@@ -44,6 +48,10 @@ export const RegionLabel = ({
   onOpen,
   onRegionClassAdded,
   allowComments,
+
+  // MY ADDITIONS
+  hideRegionTagOption,
+  hideRegionClsOption
 }: Props) => {
   const classes = useStyles()
   const commentInputRef = useRef(null)
@@ -53,6 +61,12 @@ export const RegionLabel = ({
 
     if (commentInput) return commentInput.focus()
   }
+
+  // ts
+  // useEffect(() => {
+  //   console.log(`[REGION LABEL]`)
+  //   console.log(hideRegionTagOption)
+  // }, [hideRegionTagOption])
 
   return (
     <Paper
@@ -133,7 +147,7 @@ export const RegionLabel = ({
               />
             </div>
           )}
-          {(allowedTags || []).length > 0 && (
+          {( (allowedTags || []).length > 0 && !hideRegionTagOption ) && (
             <div style={{ marginTop: 4 }}>
               <Select
                 onChange={(newTags) =>

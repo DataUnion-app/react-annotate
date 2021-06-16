@@ -223,7 +223,7 @@ export const RegionShapes = ({
       }}
     >
       <WrappedRegionList
-        key="wrapped-region-list"
+        key={`${iw} + ${ih}`}
         regions={regions}
         iw={iw}
         ih={ih}

@@ -94,12 +94,16 @@ export const Sidebar = ({
         onDeleteRegion={onDeleteRegion}
       />
       {keyframes && (
+        <>
+        {/* ts */}
+        {console.log(`KEYFRAMES = `, keyframes)}
         <KeyframesSelector
           currentVideoTime={currentVideoTime}
           keyframes={keyframes}
           onChangeVideoTime={onChangeVideoTime}
           onDeleteKeyframe={onDeleteKeyframe}
         />
+        </>
       )}
       <History history={history} onRestoreHistory={() => onRestoreHistory()} />
       {/* <Shortcuts onShortcutActionDispatched={onShortcutActionDispatched} /> */}
