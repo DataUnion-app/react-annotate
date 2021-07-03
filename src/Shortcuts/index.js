@@ -4,6 +4,8 @@ import { setIn } from "seamless-immutable"
 import SidebarBoxContainer from "../SidebarBoxContainer"
 import ShortcutField from "./ShortcutField"
 
+// TODO
+// Remove shortcuts
 const defaultShortcuts = {
   select: {
     action: {

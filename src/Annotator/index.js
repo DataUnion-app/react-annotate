@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useReducer } from "react"
+import React, { ReactElement, useEffect, useReducer } from "react"
 
 import type { Node } from "react"
 import MainLayout from "../MainLayout"
@@ -39,7 +39,6 @@ type Props = {
   showPointDistances?: boolean,
   pointDistancePrecision?: number,
   RegionEditLabel?: Node,
-  onExit: (MainLayoutState) => any,
   videoTime?: number,
   videoSrc?: string,
   keyframes?: Object,
@@ -57,7 +56,16 @@ type Props = {
   
   // MY ADDITIONS
   hideRegionClsOption?: boolean,
-  hideRegionTagOption?: boolean
+  hideRegionTagOption?: boolean,
+  darkMode?: boolean,
+
+  // FUNCTIONS
+  onExit: (MainLayoutState) => any,
+  onSubmit: (AnnotationData) => any,
+
+  // ERROR SIGNALS FROM MANTIS 
+  couldntLoadImage?: boolean,
+  loadingNextImage?: boolean
 }
 
 export const Annotator = ({
@@ -88,7 +96,6 @@ export const Annotator = ({
   videoSrc,
   videoTime = 0,
   videoName,
-  onExit,
   onNextImage,
   onPrevImage,
   keypointDefinitions,
@@ -103,12 +110,22 @@ export const Annotator = ({
   // MY ADDITIONS
   hideRegionTagOption = false,
   hideRegionClsOption = false,
+  darkMode = false,
+
+  // FUNCTIONS
+  onExit,
+  onSubmit,
+
+  // LOADING NEXT IMAGES
+  couldntLoadImage,
+  loadingNextImage
 }: Props) => {
   if (typeof selectedImage === "string") {
     selectedImage = (images || []).findIndex((img) => img.src === selectedImage)
     if (selectedImage === -1) selectedImage = undefined
   }
   const annotationType = images ? "image" : "video"
+
   const [state, dispatchToReducer] = useReducer(
     historyHandler(
       combineReducers(
@@ -153,13 +170,12 @@ export const Annotator = ({
     })
   )
 
-  // ts
-  // console.log(hideRegionTagOption)
-
   const dispatch = useEventCallback((action: Action) => {
-    if (action.type === "HEADER_BUTTON_CLICKED") {
+    if (action.type === "HEADER_BUTTON_CLICKED") {      
       if (["Exit", "Done", "Save", "Complete"].includes(action.buttonName)) {
         return onExit(without(state, "history"))
+      } else if (action.buttonName === "Submit") {
+        return onSubmit(without(state, "history"))
       } else if (action.buttonName === "Next" && onNextImage) {
         return onNextImage(without(state, "history"))
       } else if (action.buttonName === "Prev" && onPrevImage) {
@@ -206,6 +222,11 @@ export const Annotator = ({
         // MY ADDITIONS
         hideRegionTagOption={hideRegionTagOption}
         hideRegionClsOption={hideRegionClsOption}
+        darkMode={darkMode}
+
+        // ERROR SIGNALS
+        loadingNextImage={loadingNextImage}
+        couldntLoadImage={couldntLoadImage}
       />
     </SettingsProvider>
   )

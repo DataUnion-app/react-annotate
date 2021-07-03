@@ -1,14 +1,12 @@
+import { action } from "@storybook/addon-actions"
+import { storiesOf } from "@storybook/react"
+import moment from "moment"
 // @flow
 
 import React from "react"
 
-import { storiesOf } from "@storybook/react"
-import { action } from "@storybook/addon-actions"
 import { testRegions } from "../ImageCanvas/index.story"
-
 import exampleImage from "../ImageCanvas/seves_desk.story.jpg"
-import moment from "moment"
-
 import MainLayout from "./"
 
 storiesOf("MainLayout", module)
@@ -94,7 +92,6 @@ storiesOf("MainLayout", module)
         selectedImage: exampleImage,
         selectedTool: "create-box",
         taskDescription: "",
-        showTags: true,
         mode: {
           mode: "DRAW_POLYGON",
           regionId: "p1",
@@ -144,7 +141,6 @@ storiesOf("MainLayout", module)
         selectedImage: exampleImage,
         selectedTool: "create-point",
         taskDescription: "",
-        showTags: true,
         mode: null,
         images: [
           {
@@ -195,7 +191,6 @@ storiesOf("MainLayout", module)
         selectedImage: exampleImage,
         selectedTool: "create-point",
         taskDescription: "",
-        showTags: true,
         mode: null,
         images: [
           {

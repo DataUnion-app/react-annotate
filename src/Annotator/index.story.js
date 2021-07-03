@@ -1,18 +1,16 @@
+import { action as actionAddon } from "@storybook/addon-actions"
+import { storiesOf } from "@storybook/react"
 // @flow
 
 import React, { useState } from "react"
-
-import { storiesOf } from "@storybook/react"
-import { action as actionAddon } from "@storybook/addon-actions"
-import exampleImage from "../ImageCanvas/seves_desk.story.jpg"
-import bikeImg1 from "./bike-pic.png"
-import bikeImg2 from "./bike-pic2.png"
 import { HotKeys } from "react-hotkeys"
-import { defaultKeyMap } from "../ShortcutsManager"
-
-import Annotator from "./"
 
 import { testRegions } from "../ImageCanvas/index.story"
+import exampleImage from "../ImageCanvas/seves_desk.story.jpg"
+import { defaultKeyMap } from "../ShortcutsManager"
+import Annotator from "./"
+import bikeImg1 from "./bike-pic.png"
+import bikeImg2 from "./bike-pic2.png"
 
 const middlewares = [
   (store) => (next) => (action) => {
@@ -21,13 +19,33 @@ const middlewares = [
   },
 ]
 
+/*******************/
+/*** MOCK SUBMIT ***/
+/*******************/
+const mockSubmitData = {
+  photoId: 'blahblahblah',
+  data: [{
+
+  }, {
+
+  }, {
+
+  }]
+}
+
+const mockSubmitFunction = (annotation_data) => {
+
+}
+
+
 storiesOf("Annotator", module)
   .add("Basic", () => (
     <Annotator
       onExit={actionAddon("onExit")}
+      onSubmit={actionAddon("onSubmit")}
       middlewares={middlewares}
       labelImages
-      regionClsList={["Alpha", "Beta", "Charlie", "Delta"]}
+      regionClsList={["Um", "hi", "I hate this"]}
       regionTagList={["tag1", "tag2", "tag3"]}
       imageClsList={["Alpha", "Beta", "Charlie", "Delta"]}
       imageTagList={["tag1", "tag2", "tag3"]}
@@ -54,11 +72,13 @@ storiesOf("Annotator", module)
         },
       ]}
       hideRegionTagOption={true}
+      loadingNextImage={false}
     />
   ))
   .add("Basic - Allow Comments", () => (
     <Annotator
       onExit={actionAddon("onExit")}
+      onSubmit={actionAddon("onSubmit")}
       middlewares={middlewares}
       labelImages
       regionClsList={["Alpha", "Beta", "Charlie", "Delta"]}
@@ -85,6 +105,7 @@ storiesOf("Annotator", module)
         },
       ]}
       hideRegionTagOption={true}
+      loadingNextImage={false}
       allowComments
     />
   ))

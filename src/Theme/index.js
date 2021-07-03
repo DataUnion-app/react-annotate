@@ -1,11 +1,7 @@
+import { createMuiTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles"
 // @flow
 
 import React from "react"
-import {
-  ThemeProvider,
-  createMuiTheme,
-  makeStyles,
-} from "@material-ui/core/styles"
 
 const useStyles = makeStyles({
   container: {
@@ -24,6 +20,12 @@ const theme = createMuiTheme({
         textTransform: "none",
       },
     },
+    MuiCollapse: {
+      container: {
+        color: "black",
+        background: "var(--header-background-color)"
+      }
+    }
   },
 })
 

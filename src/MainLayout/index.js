@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback, useRef } from "react"
+import React, { ReactElement, useCallback, useRef } from "react"
 
 import type { Node } from "react"
 import { makeStyles, styled } from "@material-ui/core/styles"
@@ -61,7 +61,12 @@ type Props = {
 
   // MY ADDITIONS
   hideRegionTagOption?: boolean,
-  hideRegionClsOption?: boolean
+  hideRegionClsOption?: boolean,
+  darkMode?: boolean,
+
+  // ERROR SIGNALS
+  loadingNextImage?: boolean,
+  couldntLoadImage?: boolean
 }
 
 export const MainLayout = ({
@@ -80,6 +85,11 @@ export const MainLayout = ({
   // MY ADDITIONS
   hideRegionTagOption,
   hideRegionClsOption,
+  darkMode,
+
+  // ERROR SIGNALS
+  loadingNextImage,
+  couldntLoadImage
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -202,6 +212,8 @@ export const MainLayout = ({
       // MY ADDITIONS
       hideRegionTagOption={hideRegionTagOption}
       hideRegionClsOption={hideRegionClsOption}
+      loadingNextImage={loadingNextImage}
+      darkMode={darkMode}
     />
   )
 

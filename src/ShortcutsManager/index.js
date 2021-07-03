@@ -64,6 +64,7 @@ export const defaultHotkeys = [
     binding: "Ctrl+z",
   },
 ]
+
 export const defaultKeyMap = {}
 for (const { id, binding } of defaultHotkeys) defaultKeyMap[id] = binding
 
@@ -128,6 +129,12 @@ export const useDispatchHotkeyHandlers = ({ dispatch }) => {
         dispatch({
           type: "HEADER_BUTTON_CLICKED",
           buttonName: "Save",
+        })
+      },
+      save_and_submit_sample: () => {
+        dispatch({
+          type: "HEADER_BUTTON_CLICKED",
+          buttonName: "Submit",
         })
       },
       delete_region: () => {

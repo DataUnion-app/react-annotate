@@ -850,6 +850,7 @@ export default (state: MainLayoutState, action: Action) => {
         case "done": {
           return state
         }
+        case "submit":
         default:
           return state
       }
