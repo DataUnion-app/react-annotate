@@ -9,7 +9,7 @@ import React, { useEffect } from "react"
 import colors from "../colors"
 import SidebarBoxContainer from "../SidebarBoxContainer"
 
-const LabelContainer = styled("div")({
+const LabelContainer = styled("div") ({
   display: "flex",
   paddingTop: 4,
   paddingBottom: 4,
@@ -18,14 +18,24 @@ const LabelContainer = styled("div")({
   alignItems: "center",
   cursor: "pointer",
   opacity: 0.7,
-  backgroundColor: "#fff",
+  backgroundColor: "var(--header-background-color)",
   "&:hover": {
     opacity: 1,
   },
   "&.selected": {
     opacity: 1,
     fontWeight: "bold",
+    animation: "none !important",
   },
+  "&.bounty": {
+    color: "white",
+    background: "purple",
+    borderRadius: 30,
+  },
+  "&.bountyNotFulfilled": {
+    animation: "glowing 1300ms infinite",    
+    background: "purple",
+  }
 })
 
 const Circle = styled("div")({
@@ -57,9 +67,11 @@ const Number = styled("div")({
 })
 
 export const ClassSelectionMenu = ({
+  regions,
   selectedCls,
   regionClsList,
   onSelectCls,
+  checkRegionsForBounty
 }) => {
 
   useEffect(() => {
@@ -87,7 +99,11 @@ export const ClassSelectionMenu = ({
     >
       {regionClsList.map((label, index) => (
         <LabelContainer
-          className={classnames({ selected: label === selectedCls })}
+          className={classnames({ 
+            selected: label === selectedCls,
+            bounty: label === 'anonymization bounty',
+            bountyNotFulfilled: label === 'anonymization bounty' && !checkRegionsForBounty(`anonymization bounty`, regions)
+          })}
           onClick={() => onSelectCls(label)}
           key={index}
         >

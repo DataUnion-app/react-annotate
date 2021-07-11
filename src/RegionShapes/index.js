@@ -1,7 +1,6 @@
 // @flow
-
-import React, { memo } from "react"
 import colorAlpha from "color-alpha"
+import React, { memo } from "react"
 
 function clamp(num, min, max) {
   return num <= min ? min : num >= max ? max : num
@@ -210,6 +209,7 @@ export const RegionShapes = ({
   if (isNaN(iw) || isNaN(ih)) return null
   return (
     <svg
+      key={`${iw} + ${ih}`}
       width={iw}
       height={ih}
       style={{

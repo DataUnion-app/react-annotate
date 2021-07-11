@@ -319,7 +319,13 @@ export const ImageCanvas = ({
     return highlightedRegions[0]
   }, [regions])
 
-  console.log(`LOADING NEXT IMAGE = ${loadingNextImage}`)
+  // TS
+  // useEffect(() => {
+  //   console.log(`[IMAGE CANVAS]\n=== Regions ===`)
+  //   console.log(regions)
+  // }, [regions])
+
+  // console.log(`LOADING NEXT IMAGE = ${loadingNextImage}`)
 
   return (
     <div
@@ -472,13 +478,16 @@ export const ImageCanvas = ({
                 className={classes.canvas}
                 ref={canvasEl}
               />
+
               <RegionShapes
+                key={JSON.stringify(imagePosition)}
                 mat={mat}
                 keypointDefinitions={keypointDefinitions}
                 imagePosition={imagePosition}
                 regions={regions}
                 fullSegmentationMode={fullImageSegmentationMode}
               />
+
               <VideoOrImageCanvasBackground
                 videoPlaying={videoPlaying}
                 imagePosition={imagePosition}

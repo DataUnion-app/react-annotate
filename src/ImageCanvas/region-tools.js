@@ -169,3 +169,13 @@ export const moveRegion = (region: Region, x: number, y: number) => {
   }
   return region
 }
+
+export const checkRegionsForBounty = (bounty: string, regions: Array<Region>) => {
+  const bountyRegions = regions.filter((r) => r.cls === bounty)
+  if (bountyRegions.length === 0) {
+    return false 
+  }
+  else {
+    return true
+  }
+}

@@ -1,14 +1,16 @@
+import { makeStyles, styled } from "@material-ui/core/styles"
 // @flow
 
 import React from "react"
-import { styled, makeStyles } from "@material-ui/core/styles"
-import TaskDescription from "../TaskDescriptionSidebarBox"
-import ImageSelector from "../ImageSelectorSidebarBox"
-import RegionSelector from "../RegionSelectorSidebarBox"
-import History from "../HistorySidebarBox"
+
 import DebugBox from "../DebugSidebarBox"
-import TagsSidebarBox from "../TagsSidebarBox"
+import History from "../HistorySidebarBox"
+import ImageSelector from "../ImageSelectorSidebarBox"
 import KeyframesSelector from "../KeyframesSelectorSidebarBox"
+import RegionSelector from "../RegionSelectorSidebarBox"
+import TagsSidebarBox from "../TagsSidebarBox"
+import TaskDescription from "../TaskDescriptionSidebarBox"
+
 import type { Region } from "../ImageCanvas/region-tools.js"
 
 const Container = styled("div")({})
@@ -96,7 +98,7 @@ export const Sidebar = ({
       {keyframes && (
         <>
         {/* ts */}
-        {console.log(`KEYFRAMES = `, keyframes)}
+        {/* {console.log(`KEYFRAMES = `, keyframes)}0 */}
         <KeyframesSelector
           currentVideoTime={currentVideoTime}
           keyframes={keyframes}

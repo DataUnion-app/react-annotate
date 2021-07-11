@@ -1,11 +1,13 @@
+/* @flow */
 import { createMuiTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles"
-// @flow
-
 import React from "react"
+
+import Styles from "./styles"
 
 const useStyles = makeStyles({
   container: {
     fontFamily: '"Inter", sans-serif',
+    color: "var(--font-color-text)"
   },
 })
 
@@ -21,10 +23,18 @@ const theme = createMuiTheme({
       },
     },
     MuiCollapse: {
-      container: {
-        color: "black",
+      root: {
+        color: "aqua",
         background: "var(--header-background-color)"
       }
+    },
+    MuiSvgIcon: {
+      root: {
+        color: "var(--font-color-text)"
+      },
+    },
+    textColor: {
+      color: "aqua"
     }
   },
 })
@@ -32,9 +42,11 @@ const theme = createMuiTheme({
 export const Theme = ({ children }: any) => {
   const classes = useStyles()
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.container}>{children}</div>
-    </ThemeProvider>
+    <Styles>
+      <ThemeProvider theme={theme}>
+        <div className={classes.container}>{children}</div>
+      </ThemeProvider>
+    </Styles>
   )
 }
 

@@ -1,12 +1,12 @@
+import { action as actionAddon } from "@storybook/addon-actions"
+import { storiesOf } from "@storybook/react"
 // @flow
 
 import React, { useState } from "react"
 
-import { storiesOf } from "@storybook/react"
-import { action as actionAddon } from "@storybook/addon-actions"
 import dancingManImage from "../ImageCanvas/dancing-man.story.jpg"
-import dabKeyframes from "./dab-keyframes.story.json"
 import Annotator from "./"
+import dabKeyframes from "./dab-keyframes.story.json"
 
 const dancingManVideo =
   "https://s3.us-east-1.amazonaws.com/asset.workaround.online/developer-samples/how-to-dab.mp4"
@@ -14,7 +14,10 @@ const dancingManVideo =
 const middlewares = [
   (store) => (next) => (action) => {
     actionAddon(action.type)(action)
-    console.log(action)
+    
+    // ts
+    // console.log(action)
+    
     return next(action)
   },
 ]
@@ -85,7 +88,8 @@ storiesOf("Annotator (Poses)", module)
       onExit={(...props) => {
         actionAddon("onExit")(...props)
         window.testPropsSavePlease = props
-        console.log(...props)
+        // ts
+        // console.log(...props)
       }}
       labelImages
       enabledTools={["create-box", "create-keypoints"]}

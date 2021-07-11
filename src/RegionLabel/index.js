@@ -1,10 +1,12 @@
-// @flow
-
-import React, { useRef, memo, useEffect } from "react"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
-import styles from "./styles"
 import classnames from "classnames"
+// @flow
+
+import React, { memo, useEffect, useRef, useState } from "react"
+
+import styles from "./styles"
+
 import type { Region } from "../ImageCanvas/region-tools.js"
 import IconButton from "@material-ui/core/IconButton"
 import Button from "@material-ui/core/Button"
@@ -15,6 +17,7 @@ import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
 
 import { asMutable } from "seamless-immutable"
+import { SketchPicker } from 'react-color';
 
 const useStyles = makeStyles(styles)
 
@@ -62,11 +65,37 @@ export const RegionLabel = ({
     if (commentInput) return commentInput.focus()
   }
 
+  const genders = ['male', 'female', 'other']
+  const [selectedColor, setSelectedColor] = useState()
+
   // ts
   // useEffect(() => {
   //   console.log(`[REGION LABEL]`)
   //   console.log(hideRegionTagOption)
   // }, [hideRegionTagOption])
+
+  // useEffect(() => {
+  //   console.log(`[REGION LABEL]`)
+  //   console.log(region.cls)
+  // }, [region])
+
+  // useEffect(() => {
+  //   console.log(`[REGION LABEL]\n=== Dropdown Options ===`)
+    
+  //   console.log(`Array.from(Array(120)`)
+  //   console.log(Array.from(Array(120).keys()))
+    
+  //   console.log(`allowedClasses.map((c) => ({ value: c, label: c }))`)
+  //   console.log(allowedClasses.map((c) => ({ value: c, label: c })))
+
+  //   console.log(`Array.from(Array(120).keys()).map((a) => ({value: a, label: a}))`)
+  //   console.log( Array.from(Array(120).keys()).map((a) => ({value: a, label: a})) )
+  // }, [])
+
+  // useEffect(() => {
+  //   console.log(`=== SELECTED COLOR ===`)
+  //   console.log(selectedColor)
+  // }, [selectedColor])
 
   return (
     <Paper
@@ -125,9 +154,10 @@ export const RegionLabel = ({
               <TrashIcon style={{ marginTop: -8, width: 16, height: 16 }} />
             </IconButton>
           </div>
+          
           {(allowedClasses || []).length > 0 && (
             <div style={{ marginTop: 6 }}>
-              <CreatableSelect
+              <Select
                 placeholder="Classification"
                 onChange={(o, actionMeta) => {
                   if (actionMeta.action == "create-option") {
@@ -147,7 +177,66 @@ export const RegionLabel = ({
               />
             </div>
           )}
-          {( (allowedTags || []).length > 0 && !hideRegionTagOption ) && (
+
+          {region.cls === 'anonymization bounty' && (
+            <>
+            {/* AGE PICKER */}
+            <div style={{ marginTop: 4 }}>
+              <CreatableSelect
+                placeholder="Age"
+                onChange={(o, actionMeta) => {
+                  if (actionMeta.action == "create-option") {}
+                  return onChange({
+                    ...(region: any),
+                    age: o.value,
+                  })
+                }}
+                value={ 
+                  region.age ? { label: region.age, value: region.age } : null 
+                }
+                options={asMutable(
+                  Array.from(Array(120).keys()).map((a) => ({value: a, label: a}))
+                )}
+              />
+            </div>
+
+            {/* GENDER PICKER */}
+            <div style={{ marginTop: 4 }}>
+              <CreatableSelect
+                placeholder="Gender Guesser"
+                onChange={(o, actionMeta) => {
+                  if (actionMeta.action == "create-option") {}
+                  return onChange({
+                    ...(region: any),
+                    gender: o.value,
+                  })
+                }}
+                value={
+                  region.gender ? { label: region.gender, value: region.gender } : null 
+                }
+                options={asMutable(
+                  genders.map((g) => ({value: g, label: g}))
+                )}
+              />
+            </div>
+
+            {/* SKIN COLOR PICKER */}
+            <div style={{ marginTop: 4 }}>
+              <SketchPicker
+                color={selectedColor ? selectedColor : '#FFFFFF'}
+                onChange={(color, event) => setSelectedColor(color.hex)}
+                onChangeComplete={(color, event) => {
+                  return onChange({
+                    ...(region: any),
+                    color: color.hex,
+                  })
+                }}
+              />
+            </div>
+            </>
+          )}
+
+          {((allowedTags || []).length > 0 && !hideRegionTagOption ) && (
             <div style={{ marginTop: 4 }}>
               <Select
                 onChange={(newTags) =>
@@ -165,6 +254,7 @@ export const RegionLabel = ({
               />
             </div>
           )}
+
           {allowComments && (
             <TextField
               InputProps={{

@@ -1,7 +1,6 @@
+// @flow
 import { action as actionAddon } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
-// @flow
-
 import React, { useState } from "react"
 import { HotKeys } from "react-hotkeys"
 
@@ -19,24 +18,6 @@ const middlewares = [
   },
 ]
 
-/*******************/
-/*** MOCK SUBMIT ***/
-/*******************/
-const mockSubmitData = {
-  photoId: 'blahblahblah',
-  data: [{
-
-  }, {
-
-  }, {
-
-  }]
-}
-
-const mockSubmitFunction = (annotation_data) => {
-
-}
-
 
 storiesOf("Annotator", module)
   .add("Basic", () => (
@@ -45,7 +26,7 @@ storiesOf("Annotator", module)
       onSubmit={actionAddon("onSubmit")}
       middlewares={middlewares}
       labelImages
-      regionClsList={["Um", "hi", "I hate this"]}
+      regionClsList={["Um", "hi", "I hate this", "anonymization bounty"]}
       regionTagList={["tag1", "tag2", "tag3"]}
       imageClsList={["Alpha", "Beta", "Charlie", "Delta"]}
       imageTagList={["tag1", "tag2", "tag3"]}
@@ -200,7 +181,8 @@ storiesOf("Annotator", module)
     <Annotator
       onExit={(out) => {
         window.lastOutput = out
-        console.log(out)
+        // ts
+        // console.log(out)
       }}
       taskDescription={`## Annotate Hands\nDraw a bounding box around each hand.`}
       enabledTools={["select", "create-box"]}
@@ -393,7 +375,8 @@ storiesOf("Annotator", module)
       ]}
       onExit={(out) => {
         window.lastOutput = out
-        console.log(JSON.stringify(out.images))
+        // ts
+        // console.log(JSON.stringify(out.images))
       }}
     />
   ))
@@ -491,7 +474,8 @@ storiesOf("Annotator", module)
     >
       <Annotator
         onExit={(...args) => {
-          console.log(...args)
+          // ts
+          // console.log(...args)
           actionAddon("onExit")(...args)
         }}
         showTags
