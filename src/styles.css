@@ -1,12 +1,12 @@
 :root {
-    --font-color-text: #41474e;
+    --font-color-text: yellow;
     --font-color-heading: #141414;
     --background-body: #fff;
     --background-body-transparent: rgba(255, 255, 255, 0.8);
     --background-highlight: #f7f7f7;
     --border-color: #e2e2e2;
     --box-shadow-color: rgba(0, 0, 0, 0.05);
-    --header-background-color: #f2f2f2;
+    --header-background-color: aqua;
     --node-background-color: #f2f2f2;
     --tags-color: var(--brand-grey-light);
     --security-boxes-color: #f2f2f2;  

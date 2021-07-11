@@ -21,6 +21,9 @@ const theme = createMuiTheme({
         // background: "linear-gradient(to right bottom, rgb(249, 37, 255), rgb(0, 72, 186))",
         textTransform: "none",
       },
+      label: {
+        color: "var(--font-color-text)"
+      }
     },
     MuiCollapse: {
       root: {

@@ -25,7 +25,7 @@ export default {
     padding: 4,
     cursor: "pointer",
     "&.header:hover": {
-      backgroundColor: "#fff",
+      backgroundColor: "var(--header-background-color)",
     },
     "&.highlighted": {
       backgroundColor: blue[100],

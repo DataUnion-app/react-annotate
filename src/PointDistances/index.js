@@ -12,7 +12,7 @@ const Svg = styled("svg")({
   width: "100%",
   height: "100%",
   "& text": {
-    fill: "#fff",
+    fill: "var(--font-color-text)",
   },
   "& path": {
     vectorEffect: "non-scaling-stroke",

@@ -418,7 +418,7 @@
 }
 
 .markdown-body .bg-white {
-  background-color: #fff !important;
+  background-color: var(--header-background-color) !important;
 }
 
 .markdown-body .bg-gray-light {
@@ -666,7 +666,7 @@
 }
 
 .markdown-body table tr {
-  background-color: #fff;
+  background-color: var(--header-background-color);
   border-top: 1px solid #c6cbd1;
 }
 
@@ -675,7 +675,7 @@
 }
 
 .markdown-body img {
-  background-color: #fff;
+  background-color: var(--header-background-color);
   box-sizing: content-box;
   max-width: 100%;
 }

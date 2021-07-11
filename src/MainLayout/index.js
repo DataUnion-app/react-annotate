@@ -261,8 +261,14 @@ export const MainLayout = ({
           <div style={{
             color: "var(--font-color-text)",
             background: "var(--header-background-color)"
-          }} className={"textColor"}>
-            <Workspace
+          }}>
+            <div style={{
+              background: "var(--header-background-color) !important",
+              backgroundColor: "var(--header-background-color)"
+            }}>
+              <Workspace
+              // classes={classes.background}
+              className={classes.background}
               allowFullscreen
               iconDictionary={iconDictionary}
               hideHeader={hideHeader}
@@ -418,6 +424,7 @@ export const MainLayout = ({
             >
               {canvas}
             </Workspace>
+            </div>
           </div>
           
           <SettingsDialog
