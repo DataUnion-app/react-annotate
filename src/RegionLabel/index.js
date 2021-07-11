@@ -66,36 +66,7 @@ export const RegionLabel = ({
   }
 
   const genders = ['male', 'female', 'other']
-  const [selectedColor, setSelectedColor] = useState()
-
-  // ts
-  // useEffect(() => {
-  //   console.log(`[REGION LABEL]`)
-  //   console.log(hideRegionTagOption)
-  // }, [hideRegionTagOption])
-
-  // useEffect(() => {
-  //   console.log(`[REGION LABEL]`)
-  //   console.log(region.cls)
-  // }, [region])
-
-  // useEffect(() => {
-  //   console.log(`[REGION LABEL]\n=== Dropdown Options ===`)
-    
-  //   console.log(`Array.from(Array(120)`)
-  //   console.log(Array.from(Array(120).keys()))
-    
-  //   console.log(`allowedClasses.map((c) => ({ value: c, label: c }))`)
-  //   console.log(allowedClasses.map((c) => ({ value: c, label: c })))
-
-  //   console.log(`Array.from(Array(120).keys()).map((a) => ({value: a, label: a}))`)
-  //   console.log( Array.from(Array(120).keys()).map((a) => ({value: a, label: a})) )
-  // }, [])
-
-  // useEffect(() => {
-  //   console.log(`=== SELECTED COLOR ===`)
-  //   console.log(selectedColor)
-  // }, [selectedColor])
+  const [selectedColor, setSelectedColor] = useState(region.skinColor ? region.skinColor : undefined)
 
   return (
     <Paper
@@ -228,7 +199,7 @@ export const RegionLabel = ({
                 onChangeComplete={(color, event) => {
                   return onChange({
                     ...(region: any),
-                    color: color.hex,
+                    skinColor: color.hex,
                   })
                 }}
               />
