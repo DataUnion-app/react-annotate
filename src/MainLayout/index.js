@@ -258,7 +258,10 @@ export const MainLayout = ({
             state.fullScreen && "Fullscreen"
           )}
         >
-          <div style={{color: "var(--font-color-text)"}} className={"textColor"}>
+          <div style={{
+            color: "var(--font-color-text)",
+            background: "var(--header-background-color)"
+          }} className={"textColor"}>
             <Workspace
               allowFullscreen
               iconDictionary={iconDictionary}

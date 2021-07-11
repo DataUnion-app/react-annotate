@@ -30,7 +30,6 @@ const LabelContainer = styled("div") ({
   "&.bounty": {
     color: "white",
     background: "purple",
-    borderRadius: 30,
   },
   "&.bountyNotFulfilled": {
     animation: "glowing 1300ms infinite",    

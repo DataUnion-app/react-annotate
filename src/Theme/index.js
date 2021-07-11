@@ -32,9 +32,6 @@ const theme = createMuiTheme({
       root: {
         color: "var(--font-color-text)"
       },
-    },
-    textColor: {
-      color: "aqua"
     }
   },
 })
