@@ -1,6 +1,6 @@
 {
   "name": "@dataunion/react-annotate",
-  "version": "1.8.21",
+  "version": "1.8.26",
   "dependencies": {
     "@dataunion/react-material-workspace-layout": "^1.0.9",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
