@@ -19,7 +19,7 @@ import { useDispatchHotkeyHandlers } from "../ShortcutsManager"
 import { withHotKeys } from "react-hotkeys"
 import iconDictionary from "./icon-dictionary"
 import KeyframeTimeline from "../KeyframeTimeline"
-import Workspace from "react-material-workspace-layout/Workspace"
+import Workspace from "@dataunion/react-material-workspace-layout/Workspace"
 import DebugBox from "../DebugSidebarBox"
 import TagsSidebarBox from "../TagsSidebarBox"
 import KeyframesSelector from "../KeyframesSelectorSidebarBox"
@@ -132,8 +132,8 @@ export const MainLayout = ({
   let impliedVideoRegions = useImpliedVideoRegions(state)
 
   const refocusOnMouseEvent = useCallback((e) => {
-    if (!innerContainerRef.current) return
-    if (typeof document !== 'undefined' && innerContainerRef.current.contains(document.activeElement)) return
+    if (!innerContainerRef.current && typeof document !== 'undefined') return
+    if (innerContainerRef.current.contains(document.activeElement)) return
     if (innerContainerRef.current.contains(e.target)) {
       innerContainerRef.current.focus()
       e.target.focus()

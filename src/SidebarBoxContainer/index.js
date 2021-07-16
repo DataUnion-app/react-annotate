@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
 import classnames from "classnames"
 import useEventCallback from "use-event-callback"
-import SidebarBox from "react-material-workspace-layout/SidebarBox"
+import SidebarBox from "@dataunion/react-material-workspace-layout/SidebarBox"
 
 const useStyles = makeStyles({
   container: { margin: 8 },
